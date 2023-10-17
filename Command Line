@@ -1,1 +1,22 @@
 
+-----------------------------------------------------------------
+// first init
+npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+-----------------------------------------------------------------
+
+-----------------------------------------------------------------
+--only first time 
+npm install -g typescript
+--
+npm i typescript
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+Convert typescript files to javascript
+tsc
+-----------------------------------------------------------------
