@@ -40,3 +40,41 @@ export class ServerComponent {
 }
 -->
 //-----------------------------------------------------------------------------------
+
+
+
+
+
+
+//-----------------------------------------------------------------------------------
+//Event Binding with data
+<div class="server">
+    <label>Server Name</label>
+    <input type="text" class="form-control" (input) = "onUpdateServerName($event.target.value)">
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+    <p>{{ serverName }}</p>
+    
+</div>
+
+
+
+<!--component.ts
+export class ServerComponent {
+   serverName : string = "";
+
+    constructor(){
+      setTimeout(() => {
+        this.allowNewServer = true;
+      }, 2000);
+    }
+
+    onUpdateServerName(serverName : string){
+          console.log(serverName)
+          this.serverName = serverName;
+        }
+}
+-->
+//-----------------------------------------------------------------------------------
+
+
+
