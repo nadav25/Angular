@@ -4,7 +4,7 @@
 //Property Binding
 <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
 
-//string.html InterPolation
+//string InterPolation
 <p>Server With ID {{ serverId }} IS {{ getServerStatus() }}</p>
 
 
