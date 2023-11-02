@@ -1,0 +1,42 @@
+
+
+//-----------------------------------------------------------------------------------
+//Property Binding
+<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+//-----------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------
+//string InterPolation
+<p>Server With ID {{ serverId }} IS {{ getServerStatus() }}</p>
+//-----------------------------------------------------------------------------------
+
+
+
+//-----------------------------------------------------------------------------------
+//Event Binding
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<p>{{ serverCreationStatus }}</p>
+<p>Server With ID {{ serverId }} IS {{ getServerStatus() }}</p>
+
+
+<!--component.ts
+export class ServerComponent {
+    serverId : number = 10;
+    serverStatus : string = 'offline';
+    allowNewServer : boolean = false;
+    serverCreationStatus : string = 'No server was created';
+
+    constructor(){
+      setTimeout(() => {
+        this.allowNewServer = true;
+      }, 2000);
+    }
+    onCreateServer(){
+      return this.serverCreationStatus = 'Server was Created';
+    }
+    getServerStatus(){
+      return this.serverStatus;
+    }
+}
+-->
+//-----------------------------------------------------------------------------------
