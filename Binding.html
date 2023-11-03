@@ -68,6 +68,51 @@ export class ServerComponent {
 }
 -->
 //-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
+
+<!--ngModel -->
+
+<div class="server">
+    <label>Server Name</label>
+    <input type="text" class="form-control" (input) = "onUpdateServerName($event.target.value)">
+    <input type="text" class="form-control" [(ngModel)] ="serverName">
+    <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+    <p>{{ serverName }}</p>
+    <p>{{ serverCreationStatus }}</p>
+    <p>Server With ID {{ serverId }} IS {{ getServerStatus() }}</p>
+</div>
+
+<!--
+export class ServerComponent {
+    serverId : number = 10;
+    serverStatus : string = 'offline';
+    allowNewServer : boolean = false;
+    serverCreationStatus : string = 'No server was created';
+    serverName : string = "";
+
+        constructor(){
+          setTimeout(() => {
+            this.allowNewServer = true;
+          }, 2000);
+        }
+    
+        onUpdateServerName(serverName : string){
+          console.log(serverName)
+          this.serverName = serverName;
+        }
+    
+        onCreateServer(){
+          return this.serverCreationStatus = 'Server was Created';
+        }
+    
+        getServerStatus(){
+          return this.serverStatus;
+        }
+    }
+
+-->
+
+<!--ngModel -->
 
 
 
