@@ -10,3 +10,36 @@
     </ng-template>
     <p>Server With ID {{ serverId }} IS {{ getServerStatus() }}</p>
 </div>
+
+
+
+<!-- export class ServerComponent {
+    serverId : number = 10;
+    serverStatus : string = 'offline';
+    allowNewServer : boolean = false;
+    serverCreationStatus : string = 'No server was created';
+    serverName : string = "";
+    serverCreated : boolean = false;
+
+    constructor(){
+      setTimeout(() => {
+        this.allowNewServer = true;
+      }, 2000);
+    }
+
+    onUpdateServerName(serverName : string){
+      console.log(serverName)
+      this.serverName = serverName;
+    }
+
+    onCreateServer(){
+      this.serverCreationStatus = 'Server was Created, server name : ' + this.serverName;
+      this.serverCreated = true;
+    }
+
+    getServerStatus(){
+      return this.serverStatus;
+    }
+
+}
+-->
