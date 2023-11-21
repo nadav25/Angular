@@ -1,0 +1,68 @@
+
+
+
+<!-- First option passing data from the App component to the server component
+in the server compontent the param need to declare with Input() 
+-->
+
+<!---------------------AppComponent.html------------------------>
+<div class="container">
+  <app-cockpit></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements"
+      [element]="serverElement"
+      ></app-server-element>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--
+-------------------ServerElementComponent------------------------
+
+export class ServerElementComponent implements OnInit {
+    @Input() element : {type:string , name: string, content: string};
+    constructor() {}
+    ngOnInit(): void {
+      
+    }
+
+    onAddServer() {
+      // this.serverElements.push({
+      //   type: 'server',
+      //   name: this.newServerName,
+      //   content: this.newServerContent
+      // });
+    }
+  
+    onAddBlueprint() {
+      // this.serverElements.push({
+      //   type: 'blueprint',
+      //   name: this.newServerName,
+      //   content: this.newServerContent
+      // });
+    }
+}
+-------------------ServerElementComponent------------------------
+
+-------------------AppComponent------------------------
+
+
+export class AppComponent {
+ 
+ 
+  serverElements = [{type:'server',name:'TestServer',content:'just a test'}];
+
+ 
+}
+-------------------AppComponent------------------------
+
+
+
+-->
+
+
