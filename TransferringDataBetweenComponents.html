@@ -70,3 +70,113 @@ export class AppComponent {
 -->
 
 
+
+
+<!-- Option 2 Transferring information by raising an event between the father and son component
+in the CockpitComponent  the evebt need to declare with @Output()
+
+In this example, Data is transferred between components by raising an event in the Cockpit component and listening to the event in the App component components.
+
+note
+It is possible for the name of the parameter to be exposed to the outside world with a different name by using the following command
+ @Output('ServerCreateBlaBla') serverCreated = new EventEmitter<{serverName : string,serverContent:string}>();
+-->
+
+<!---------------------AppComponent.html------------------------>
+<div class="container">
+  <app-cockpit 
+    (serverCreated)="onServerAdded($event)"
+    (bluePrintCreated)="onBluePrintAdded($event)"
+  >
+</app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let serverElement of serverElements"
+      [element]="serverElement"
+      ></app-server-element>
+    </div>
+  </div>
+</div>
+
+<!--
+-------------------CockpitComponent------------------------
+
+export class CockpitComponent implements OnInit {
+
+  @Output() serverCreated = new EventEmitter<{serverName : string,serverContent:string}>();
+  @Output() bluePrintCreated = new EventEmitter<{serverName : string,serverContent:string}>();
+
+  newServerName : string;
+  newServerContent : string;
+
+
+  ngOnInit(): void {
+    
+  }
+
+  onServerCreated() {
+    this.serverCreated.emit({
+      serverName : this.newServerName,
+      serverContent:this.newServerContent
+    });
+  }
+
+  onBluePrintCreated() {
+    this.bluePrintCreated.emit({
+      serverName : this.newServerName,
+      serverContent:this.newServerContent
+    });
+  }
+}
+
+-------------------CockpitComponent------------------------
+-------------------AppComponent------------------------
+export class AppComponent {
+    serverElements = [{type:'server',name:'TestServer',content:'just a test'}];
+
+    onServerAdded(serverData : {serverName : string,serverContent:string}){
+      console.log('from onServerAdded ' + serverData );
+      this.serverElements.push(
+        {
+          type:'server',
+          name :serverData.serverName,
+          content: serverData.serverContent
+        });
+    }
+
+    onBluePrintAdded(bluePrintData : {serverName : string,serverContent:string}){
+      console.log('from onBluePrintAdded ' + bluePrintData );
+      this.serverElements.push(
+        {
+          type:'blueprint',
+          name :bluePrintData.serverName,
+          content: bluePrintData.serverContent
+        });
+    }
+ 
+}
+
+-------------------AppComponent------------------------
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
